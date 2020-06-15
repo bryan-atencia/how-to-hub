@@ -1,12 +1,12 @@
 let express = require("express");
 let app = express();
 
-let port = 3000
-let path = require("path")
+let dotenv = require("dotenv")
+dotenv.config();
 
-app.listen(port, () => {
-  console.log("listening on " + port)
-})
+let port = process.env.PORT
+
+app.listen(port);
 
 app.use(express.static(process.cwd() + "/dist"))
 
