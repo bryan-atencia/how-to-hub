@@ -40,10 +40,8 @@ import { Link } from "react-router-dom";
     margin:"15px 0"
   },
   homeLink: {
-    position:"absolute",
-    top:"12%",
-    right:"10%",
-    color:"black"
+    color:"black",
+    textDecoration:"none"
   },
   actionLink: {
     color:"black",
@@ -103,10 +101,12 @@ export default class Category extends React.Component {
             <Grid className={ classes.mainGrid }>
               <Typography variant="h2" >{ subcategory.title }</Typography>
               <Typography variant="h6" style={{ margin:"15px 0" }}>{ subcategory.subtitle }</Typography>
-              <Typography className={ classes.tileActionText }>{ subcategory.actionText }</Typography>
-              <Link to="/" className={ classes.homeLink }>
-                <Typography variant="h5">Home</Typography>
-              </Link>
+              <Grid container justify="start">
+                <Typography className={ classes.tileActionText } style={{ marginRight:"20px" }}>{ subcategory.actionText }</Typography>
+                <Link to="/" className={ classes.homeLink }>
+                  <Typography variant="body1" className={ classes.tileActionText }>HOME</Typography>
+                </Link>
+              </Grid>
             </Grid>
             { subcategory.subcategories && this.renderSubCategories() }
             <Grid container style={{ margin:"50px auto" }}>

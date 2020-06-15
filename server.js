@@ -11,5 +11,13 @@ app.listen(port, () => {
 app.use(express.static(process.cwd() + "/dist"))
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./"), 'index.html');
+  res.sendFile(process.cwd() + "/dist/index.html")
+})
+
+app.get("/category/:id", (req, res) => {
+  res.sendFile(process.cwd() + "/dist/index.html")
+})
+
+app.get("/subcategory/:id", (req, res) => {
+  res.sendFile(process.cwd() + "/dist/index.html")
 })

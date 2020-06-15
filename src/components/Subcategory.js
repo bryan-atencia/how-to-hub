@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
     borderBottom:"1px solid",
     width:"fit-content",
     margin:"20px 0",
-    fontSize:"1rem"
+    textTransform:"uppercase"
   },
   homeLink: {
     color:"black",
@@ -81,13 +81,13 @@ export default class Subcategory extends React.Component {
               <Grid style={{ maxWidth:"900px" }}>
                 <Typography variant="h2">{ subcategoryData.pageTitle }</Typography>
                 <Typography variant="h6">{ subcategoryData.pageDescription }</Typography>
-                <Grid container justify="space-between">
-                  <Typography className={ classes.tileActionText }>{ subcategoryData.pageActionLink }</Typography>
-                  <Link to="/" className={ classes.homeLink }>
-                    <Typography variant="body1" className={ classes.tileActionText } variant="h5">Home</Typography>
+                <Grid container>
+                  <Typography className={ classes.tileActionText } style={{ marginRight:"20px" }}>{ subcategoryData.pageActionLink }</Typography>
+                  <Link to="/" className={ classes.homeLink } style={{ marginRight:"20px" }}>
+                    <Typography variant="body1" className={ classes.tileActionText }>HOME</Typography>
                   </Link>
                   <Link to={subcategoryData.category ? `/category/${subcategoryData.category.id}` : "/"} className={ classes.homeLink }>
-                    <Typography variant="body1" className={ classes.tileActionText } variant="h5">Back to Category</Typography>
+                    <Typography variant="body1" className={ classes.tileActionText }>BACK TO CATEGORY</Typography>
                   </Link>
                 </Grid>
               </Grid>
