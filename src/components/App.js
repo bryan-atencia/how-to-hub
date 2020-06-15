@@ -15,7 +15,7 @@ import Subcategory from "./Subcategory"
   rootGrid: {
     height:"100%",
     width:"100%",
-    maxWidth:"1300px",
+    maxWidth:"1180px",
     margin:"0 auto",
     padding:"40px"
   }
