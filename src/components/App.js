@@ -25,6 +25,9 @@ export default class App extends React.Component {
 
   componentDidMount(){
     document.body.style.margin = 0
+    fetch("/admin/collections/blog").then(x => x.json()).then(res => {
+      console.log(res, 'the response in fetch')
+    })
   }
 
   render(){
