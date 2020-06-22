@@ -34,18 +34,28 @@ export default class Main extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      categories: []
+      categories: [],
+      backend:"strapi"
     }
   }
 
-  componentDidMount = () =>{
-    this.fetchCategories()
+  componentDidMount = () => {
+    switch(this.state.backend) {
+      case "strapi": {
+        this.fetchStrapiCategories()
+      }
+      break;
+      break;
+      default: {
+        this.fetchStrapiCategories()
+        }
+    }
   }
 
-  fetchCategories = () => {
+  fetchStrapiCategories = () => {
     fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
          .then(x => x.json())
-         .then(y => this.setState({categories:[...y]}))
+         .then(y => this.setState({categories:[...y]})  )
   }
 
   renderCategories = () => {

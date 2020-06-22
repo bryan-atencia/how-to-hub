@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
   res.sendFile(process.cwd() + "/dist/index.html")
 })
 
+app.get("/admin", (req, res) => {
+  res.sendFile(process.cwd() + "/dist/admin/index.html")
+})
+
 app.get("/category/:id", (req, res) => {
   res.sendFile(process.cwd() + "/dist/index.html")
 })

@@ -53,16 +53,24 @@ export default class Category extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      subcategory: {}
+      subcategory: {},
+      backend:"strapi"
     }
   }
 
   componentDidMount = () => {
-    this.fetchCategory()
+    switch(this.state.backend) {
+      case "strapi": {
+        this.fetchStrapiCategory()
+      }
+      break;
+      default: {
+        this.fetchStrapiCategory()
+        }
+    }
   }
 
-  fetchCategory = () => {
-
+  fetchStrapiCategory = () => {
     const { match } = this.props
 
     fetch(`https://how-to-hub-strapi-backend.herokuapp.com/categories/${match.params.id}`)
@@ -101,7 +109,7 @@ export default class Category extends React.Component {
             <Grid className={ classes.mainGrid }>
               <Typography variant="h2" >{ subcategory.title }</Typography>
               <Typography variant="h6" style={{ margin:"15px 0" }}>{ subcategory.subtitle }</Typography>
-              <Grid container justify="start">
+              <Grid container justify="flex-start">
                 <Typography className={ classes.tileActionText } style={{ marginRight:"20px" }}>{ subcategory.actionText }</Typography>
                 <Link to="/" className={ classes.homeLink }>
                   <Typography variant="body1" className={ classes.tileActionText }>HOME</Typography>

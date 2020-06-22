@@ -37,7 +37,8 @@ export default class Subcategory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subcategoryData: {}
+      subcategoryData: {},
+      backend:"strapi"
     }
   }
 
