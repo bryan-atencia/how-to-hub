@@ -25,8 +25,11 @@ export default class App extends React.Component {
 
   componentDidMount(){
     document.body.style.margin = 0
-    fetch("dist/admin/collections/blog").then(x => x.json()).then(res => {
-      console.log(res, 'the response in fetch')
+    fetch('http://focused-hamilton-101097.netlify.app/dist/admin/collections/blog').then(x => {
+      console.log(x, x.json())
+      return x.json()
+    }).then(y => {
+      console.log(y)
     })
   }
 
