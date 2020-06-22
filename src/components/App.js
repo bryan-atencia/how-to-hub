@@ -25,9 +25,16 @@ export default class App extends React.Component {
 
   componentDidMount(){
     document.body.style.margin = 0
-    fetch('http://focused-hamilton-101097.netlify.app/dist/admin/collections/blog').then(x => {
+    fetch('http://focused-hamilton-101097.netlify.app/blog', {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        'Content-Type': 'application/json',
+        "Accept": "application/json"
+      }
+    })
+    .then(x => {
       console.log(x, x.json())
-      return x.json()
+      // return x.json()
     }).then(y => {
       console.log(y)
     })
