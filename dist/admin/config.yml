@@ -3,6 +3,7 @@ backend:
   branch: master
 
 media_folder: "/dist/admin/images/uploads" # M
+publish_mode: editorial_workflow
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
