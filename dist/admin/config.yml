@@ -6,7 +6,7 @@ media_folder: "/dist/admin/images/uploads" # M
 publish_mode: editorial_workflow
 
 collections:
-  - name: "bryan" # Used in routes, e.g., /admin/collections/blog
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
     extension: "json"
     label: "Blog" # Used in the UI
     folder: "/dist/admin/collections/_posts/blog" # The path to the folder where the documents are stored
