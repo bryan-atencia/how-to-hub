@@ -25,7 +25,7 @@ export default class App extends React.Component {
 
   componentDidMount(){
     document.body.style.margin = 0
-    fetch('https://focused-hamilton-101097.netlify.app/blog', {
+    fetch('https://focused-hamilton-101097.netlify.app/_posts/blog', {
       mode:"no-cors",
       headers: {
         "Access-Control-Allow-Origin": "*",
