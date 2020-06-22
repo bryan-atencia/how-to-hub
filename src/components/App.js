@@ -26,6 +26,7 @@ export default class App extends React.Component {
   componentDidMount(){
     document.body.style.margin = 0
     fetch('http://focused-hamilton-101097.netlify.app/blog', {
+      method:"POST",
       headers: {
         "Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json',
