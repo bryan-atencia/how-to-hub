@@ -54,25 +54,31 @@ export default class Main extends React.Component {
   }
 
   fetchStrapiCategories = () => {
-    
+
     // fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
     //      .then(x => x.json())
     //      .then(y => this.setState({categories:[...y]})  )
 
-    fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/How-tos')
-      .then(blob => blob.json())
-      .then(res => {
-          for(let x = 0;x < res.length;x++) {
-            fetch(`${res[x]['download_url']}`)
-              .then(y => y.json())
-              .then(z => {
-                this.state.categories.push(z)
-                this.setState({
-                  categories: this.state.categories
-                })
-              })
+    // fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/How-tos')
+    //   .then(blob => blob.json())
+    //   .then(res => {
+    //       for(let x = 0;x < res.length;x++) {
+    //         fetch(`${res[x]['download_url']}`)
+    //           .then(y => y.json())
+    //           .then(z => {
+    //             this.state.categories.push(z)
+    //             this.setState({
+    //               categories: this.state.categories
+    //             })
+    //           })
+    //
+    //       }
+    //     })
 
-          }
+    fetch("/.netlify/functions/fetchHowTos")
+        .then(x => x.json())
+        .then(y => {
+          console.log(y, 'the y value')
         })
 
   }
