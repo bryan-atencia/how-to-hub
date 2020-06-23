@@ -62,7 +62,7 @@ export default class Main extends React.Component {
       .then(blob => blob.json())
       .then(res => {
           for(let x = 0;x < res.length;x++) {
-            fetch(`https://raw.githubusercontent.com/bryan-atencia/how-to-hub/master/dist/admin/collections/_posts/blog/${res[x].name}`)
+            fetch(`${res[x]['download_url']}`)
               .then(y => y.json())
               .then(z => {
                 this.state.gitData.push(z)
@@ -72,6 +72,7 @@ export default class Main extends React.Component {
               })
           }
         })
+
   }
 
   renderCategories = () => {
