@@ -75,12 +75,12 @@ export default class Main extends React.Component {
     //       }
     //     })
 
-    fetch("/.netlify/functions/fetchHowTos")
-        .then(x => x.json())
-        .then(y => {
-          console.log(y, 'the y value')
-        })
-
+    // fetch("http://focused-hamilton-101097.netlify.app/.netlify/functions/fetchHowTos")
+    //     .then(x => x.json())
+    //     .then(y => {
+    //       console.log(y, 'the y value')
+    //     })
+  
   }
 
   renderCategories = () => {
