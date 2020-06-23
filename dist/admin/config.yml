@@ -63,6 +63,7 @@ collections:
       - {label: "pageTitle", name: "pageTitle", widget: "string"}
       - {label: "pageDescription", name: "pageDescription", widget: "string"}
       - {label: "pageActionLink", name: "heroActionLink", widget: "string"}
+      
 collections:
   - name: "Steps" # Used in routes, e.g., /admin/collections/blog
     extension: "json"
