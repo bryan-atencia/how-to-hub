@@ -54,27 +54,25 @@ export default class Main extends React.Component {
   }
 
   fetchStrapiCategories = () => {
-    fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
-         .then(x => x.json())
-         .then(y => this.setState({categories:[...y]})  )
+    
+    // fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
+    //      .then(x => x.json())
+    //      .then(y => this.setState({categories:[...y]})  )
 
-    fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/_posts/blog')
+    fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/How-tos')
       .then(blob => blob.json())
       .then(res => {
-        this.setState({
-          gitData: [...res]
-        })
-          // for(let x = 0;x < res.length;x++) {
-          //   fetch(`${res[x]['download_url']}`)
-          //     .then(y => y.json())
-          //     .then(z => {
-          //       this.state.gitData.push(z)
-          //       this.setState({
-          //         gitData: this.state.gitData
-          //       })
-          //     })
-          //
-          // }
+          for(let x = 0;x < res.length;x++) {
+            fetch(`${res[x]['download_url']}`)
+              .then(y => y.json())
+              .then(z => {
+                this.state.categories.push(z)
+                this.setState({
+                  categories: this.state.categories
+                })
+              })
+
+          }
         })
 
   }
@@ -103,7 +101,7 @@ export default class Main extends React.Component {
     return <>
             <Grid className={ classes.mainGrid }>
               <Typography variant="h2" gutterBottom>The Bartender</Typography>
-              {this.state.gitData && this.state.gitData.map((x, y) => <Grid key={y}>{ x.name.split(".")[0] }</Grid>)}
+              {this.state.gitData && this.state.gitData.map((x, y) => <Grid key={y}>{ x.name }</Grid>)}
               <Typography variant="h6">Your complete guide to men’s apparel and accessories. Browse style tips, size guides, and steps to master tying a necktie, tying a bow tie, folding a pocket square, and more.</Typography>
             </Grid>
             {this.renderCategories()}
