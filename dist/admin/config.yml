@@ -21,7 +21,6 @@ collections:
       - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-collections:
   - name: "How-tos" # Used in routes, e.g., /admin/collections/blog
     extension: "json"
     label: "How-tos" # Used in the UI
@@ -32,7 +31,6 @@ collections:
       - {label: "name", name: "name", widget: "string"}
       - {label: "image", name: "image", widget: "image"}
 
-collections:
   - name: "Categories" # Used in routes, e.g., /admin/collections/blog
     extension: "json"
     label: "Categories" # Used in the UI
@@ -48,7 +46,6 @@ collections:
       - {label: "heroDescription", name: "heroDescription", widget: "string"}
       - {label: "heroActionLink", name: "heroActionLink", widget: "string"}
 
-collections:
   - name: "Subcategories" # Used in routes, e.g., /admin/collections/blog
     extension: "json"
     label: "Subcategories" # Used in the UI
@@ -63,8 +60,7 @@ collections:
       - {label: "pageTitle", name: "pageTitle", widget: "string"}
       - {label: "pageDescription", name: "pageDescription", widget: "string"}
       - {label: "pageActionLink", name: "heroActionLink", widget: "string"}
-      
-collections:
+
   - name: "Steps" # Used in routes, e.g., /admin/collections/blog
     extension: "json"
     label: "Subcategories" # Used in the UI
