@@ -35,7 +35,8 @@ export default class Main extends React.Component {
     super(props);
     this.state = {
       categories: [],
-      backend:"strapi"
+      backend:"strapi",
+      gitData: []
     }
   }
 
@@ -56,6 +57,21 @@ export default class Main extends React.Component {
     fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
          .then(x => x.json())
          .then(y => this.setState({categories:[...y]})  )
+
+    fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/_posts/blog')
+      .then(blob => blob.json())
+      .then(res => {
+          for(let x = 0;x < res.length;x++) {
+            fetch(`https://raw.githubusercontent.com/bryan-atencia/how-to-hub/master/dist/admin/collections/_posts/blog/${res[x].name}`)
+              .then(y => y.json())
+              .then(z => {
+                this.state.gitData.push(z)
+                this.setState({
+                  gitData: this.state.gitData
+                })
+              })
+          }
+        })
   }
 
   renderCategories = () => {
@@ -82,6 +98,11 @@ export default class Main extends React.Component {
     return <>
             <Grid className={ classes.mainGrid }>
               <Typography variant="h2" gutterBottom>The Bartender</Typography>
+              {
+                this.state.gitData && this.state.gitData.map((x, y) => {
+                  return <Grid key={y}>{ x.body }</Grid>
+                })
+              }
               <Typography variant="h6">Your complete guide to men’s apparel and accessories. Browse style tips, size guides, and steps to master tying a necktie, tying a bow tie, folding a pocket square, and more.</Typography>
             </Grid>
             {this.renderCategories()}

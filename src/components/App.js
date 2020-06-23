@@ -25,15 +25,6 @@ export default class App extends React.Component {
 
   componentDidMount(){
     document.body.style.margin = 0
-    fetch("https://api.netlify.com/api/v1/sites/146c39f2-8ffd-4ce7-b486-a3e18ebd3754/files/", {
-      mode:"no-cors",
-      headers: {
-        "Authorization": "1dc86fe87aa1869e73708120a425b5c23b1a2452ee9922b10d094bab03a64c49"
-      }
-    })
-    .then(x => x.json()).then(y => {
-      console.log(y, 'the data')
-    })
   }
 
   render(){
