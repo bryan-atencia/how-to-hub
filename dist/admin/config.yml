@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: master
+  repo: bryan-atencia/how-to-hub
 
 media_folder: "/dist/admin/images/uploads" # M
 publish_mode: editorial_workflow
@@ -19,3 +20,56 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+collections:
+  - name: "How-tos" # Used in routes, e.g., /admin/collections/blog
+    extension: "json"
+    label: "How-tos" # Used in the UI
+    folder: "/dist/admin/collections/How-tos" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "name", name: "name", widget: "string"}
+      - {label: "image", name: "image", widget: "image"}
+
+collections:
+  - name: "Categories" # Used in routes, e.g., /admin/collections/blog
+    extension: "json"
+    label: "Categories" # Used in the UI
+    folder: "/dist/admin/collections/Categories" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "title", name: "title", widget: "string"}
+      - {label: "subtitle", name: "subtitle", widget: "string"}
+      - {label: "actionText", name: "actionText", widget: "string"}
+      - {label: "heroImage", name: "heroImage", widget: "image"}
+      - {label: "heroTitle", name: "heroTitle", widget: "string"}
+      - {label: "heroDescription", name: "heroDescription", widget: "string"}
+      - {label: "heroActionLink", name: "heroActionLink", widget: "string"}
+
+collections:
+  - name: "Subcategories" # Used in routes, e.g., /admin/collections/blog
+    extension: "json"
+    label: "Subcategories" # Used in the UI
+    folder: "/dist/admin/collections/Subcategories" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "media", name: "heroImage", widget: "image"}
+      - {label: "title", name: "title", widget: "string"}
+      - {label: "description", name: "description", widget: "string"}
+      - {label: "actionText", name: "actionText", widget: "string"}
+      - {label: "pageTitle", name: "pageTitle", widget: "string"}
+      - {label: "pageDescription", name: "pageDescription", widget: "string"}
+      - {label: "pageActionLink", name: "heroActionLink", widget: "string"}
+collections:
+  - name: "Steps" # Used in routes, e.g., /admin/collections/blog
+    extension: "json"
+    label: "Subcategories" # Used in the UI
+    folder: "/dist/admin/collections/Steps" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "title", name: "title", widget: "string"}
+      - {label: "description", name: "description", widget: "string"}

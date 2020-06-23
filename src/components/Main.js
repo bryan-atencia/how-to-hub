@@ -61,16 +61,20 @@ export default class Main extends React.Component {
     fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/_posts/blog')
       .then(blob => blob.json())
       .then(res => {
-          for(let x = 0;x < res.length;x++) {
-            fetch(`${res[x]['download_url']}`)
-              .then(y => y.json())
-              .then(z => {
-                this.state.gitData.push(z)
-                this.setState({
-                  gitData: this.state.gitData
-                })
-              })
-          }
+        this.setState({
+          gitData: [...res]
+        })
+          // for(let x = 0;x < res.length;x++) {
+          //   fetch(`${res[x]['download_url']}`)
+          //     .then(y => y.json())
+          //     .then(z => {
+          //       this.state.gitData.push(z)
+          //       this.setState({
+          //         gitData: this.state.gitData
+          //       })
+          //     })
+          //
+          // }
         })
 
   }
@@ -99,11 +103,7 @@ export default class Main extends React.Component {
     return <>
             <Grid className={ classes.mainGrid }>
               <Typography variant="h2" gutterBottom>The Bartender</Typography>
-              {
-                this.state.gitData && this.state.gitData.map((x, y) => {
-                  return <Grid key={y}>{ x.body }</Grid>
-                })
-              }
+              {this.state.gitData && this.state.gitData.map((x, y) => <Grid key={y}>{ x.name.split(".")[0] }</Grid>)}
               <Typography variant="h6">Your complete guide to men’s apparel and accessories. Browse style tips, size guides, and steps to master tying a necktie, tying a bow tie, folding a pocket square, and more.</Typography>
             </Grid>
             {this.renderCategories()}
