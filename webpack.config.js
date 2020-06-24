@@ -2,7 +2,7 @@ const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js"),  path.join(__dirname, "./dist/admin/collections") ],
+  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js")],
   mode:"production",
   output: {
     path: path.join(__dirname, "/dist"),
@@ -32,7 +32,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: "[name].[ext]"
+              name: "./dist/admin/collections/*/[name].[ext]"
             }
           }
         ]
