@@ -2,7 +2,7 @@ const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js")],
+  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js"),  path.join(__dirname, "./dist/admin/collections") ],
   mode:"production",
   output: {
     path: path.join(__dirname, "/dist"),
@@ -25,6 +25,17 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.json$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: "[name].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
@@ -39,6 +50,7 @@ module.exports = {
       template: "./index.html"
     })
   ],
+  target: 'node',
   node: {
     fs: 'empty',
     __dirname: false,
