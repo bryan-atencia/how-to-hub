@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { Grid, Typography, withStyles } from "@material-ui/core"
 
+const { handler } = require("../../functions/fetchHowTos.js")
+
 @withStyles((theme) => ({
   image: {
     background:"grey",
@@ -80,6 +82,8 @@ export default class Main extends React.Component {
         .then(y => {
           console.log(y, 'the y value')
         })
+
+        // console.log(handler())
 
   }
 
