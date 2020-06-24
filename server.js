@@ -23,7 +23,7 @@ app.get("/admin", (req, res) => {
 app.get("/hows", (req, res) => {
   let path = "./dist/admin/collections/How-tos"
   let folder = fs.readdirSync(path).map(name => join(path, name))
-  let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
+  let data = folder.map(x => JSON.parse(fs.readFileSync(x, 'utf-8')))
   res.json(data)
 })
 
