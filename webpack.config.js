@@ -2,7 +2,7 @@ const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js")],
+  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js"), path.join(__dirname, "./dist/admin/collections/How-tos/map-name-bow-ties-image-dist-admin-images-uploads-sample-jpeg.json")],
   mode:"production",
   output: {
     path: path.join(__dirname, "/dist"),
