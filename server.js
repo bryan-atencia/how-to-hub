@@ -1,5 +1,7 @@
 let express = require("express");
 let app = express();
+let fs = require('fs')
+const { join } = require('path');
 
 let dotenv = require("dotenv")
 dotenv.config();
@@ -16,6 +18,13 @@ app.get("/", (req, res) => {
 
 app.get("/admin", (req, res) => {
   res.sendFile(process.cwd() + "/dist/admin/index.html")
+})
+
+app.get("/hows", (req, res) => {
+  let path = "./dist/admin/collections/How-tos"
+  let folder = fs.readdirSync(path).map(name => join(path, name))
+  let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
+  res.json(data)
 })
 
 app.get("/category/:id", (req, res) => {

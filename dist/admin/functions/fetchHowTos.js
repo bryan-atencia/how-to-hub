@@ -2,10 +2,9 @@ let fs = require('fs');
 
 exports.handler = function(event, context, callback ) {
   let path = "./collections/How-tos"
-  let data = []
-  fs.readdir(path, (x, y) => {
-    data = [...y]
-  })
+  let folder = fs.readdirSync(path).map(name => join(path, name))
+  let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
+
   callback(null, {
       statusCode: 200,
       body: JSON.stringify({ data: data })
