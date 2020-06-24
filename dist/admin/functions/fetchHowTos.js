@@ -3,7 +3,9 @@ const { join } = require('path');
 const path = require("path")
 
 exports.handler = function(event, context, callback ) {
-  console.log(path.resolve("./README.md"), 'this is a console.log thats working', fs.readdirSync("/var"));
+  console.log(path.resolve("./README.md"), 'this is a console.log thats working',
+      fs.readdirSync("/var"), fs.readdirSync("/var/task/src"),
+    fs.readdirSync("/var/local"), fs.readdirSync("/usr/lib/"));
   const filePath = __dirname + '/dist/admin/collections/How-tos';
   let folder = fs.readdirSync(filePath).map(x => join(filePath, x))
   let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
