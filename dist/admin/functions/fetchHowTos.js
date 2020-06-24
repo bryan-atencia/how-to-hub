@@ -8,13 +8,12 @@ exports.handler = function(event, context, callback ) {
   // let x = new Promise(function(resolve, reject) {
   //   resolve(data)
   // });
-  return {
-    event,
-    context,
-    callback,
-  }
-  // callback(null, {
-  //     statusCode: 200,
-  //     body:x
-  //   });
+  callback(null, {
+      statusCode: 200,
+      body:{
+        event,
+        context,
+        callback,
+      }
+    });
 }
