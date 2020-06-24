@@ -7,7 +7,7 @@ const filePath = process.cwd();
 // let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
 
 exports.handler = function(event, context, callback ) {
-  console.log(filePath, 'the stuff')
+  console.log(process.env.HOW, 'the stuff')
   callback(null, {
       statusCode: 200,
       body: JSON.stringify({
