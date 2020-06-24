@@ -27,12 +27,13 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
+        type:'javascript/auto',
         test: /\.json$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: "./dist/admin/collections/*/[name].[ext]"
+              name: "./dist/admin/collections/How-tos/[name].[ext]"
             }
           }
         ]
