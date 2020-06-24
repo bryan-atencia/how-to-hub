@@ -55,9 +55,9 @@ export default class Main extends React.Component {
 
   fetchStrapiCategories = () => {
 
-    // fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
-    //      .then(x => x.json())
-    //      .then(y => this.setState({categories:[...y]})  )
+    fetch("https://how-to-hub-strapi-backend.herokuapp.com/how-tos")
+         .then(x => x.json())
+         .then(y => this.setState({categories:[...y]})  )
 
     // fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/How-tos')
     //   .then(blob => blob.json())
