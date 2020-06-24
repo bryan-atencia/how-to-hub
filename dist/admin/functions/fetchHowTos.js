@@ -2,15 +2,14 @@ const fs = require('fs');
 const { join } = require('path');
 const path = require("path")
 
-// const filePath = process.cwd();
-
-// let folder = fs.readdirSync(filePath).map(x => join(filePath, x))
-// let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
+const filePath = path.resolve(__dirname, 'dist/admin/collections/How-tos');
+let folder = fs.readdirSync(filePath).map(x => join(filePath, x))
+let data = folder.map(x =>  JSON.parse(fs.readFileSync(x, 'utf-8')))
 
 exports.handler = function(event, context, callback ) {
 
-  console.log(path.resolve("./README.md"));
-  
+  console.log(path.resolve("./server.js"));
+
   callback(null, {
       statusCode: 200,
       body: JSON.stringify({
