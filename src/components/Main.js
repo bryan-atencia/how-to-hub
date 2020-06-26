@@ -59,30 +59,6 @@ export default class Main extends React.Component {
          .then(x => x.json())
          .then(y => this.setState({categories:[...y]})  )
 
-    // fetch('https://api.github.com/repos/bryan-atencia/how-to-hub/contents/dist/admin/collections/How-tos')
-    //   .then(blob => blob.json())
-    //   .then(res => {
-    //       for(let x = 0;x < res.length;x++) {
-    //         fetch(`${res[x]['download_url']}`)
-    //           .then(y => y.json())
-    //           .then(z => {
-    //             this.state.categories.push(z)
-    //             this.setState({
-    //               categories: this.state.categories
-    //             })
-    //           })
-    //
-    //       }
-    //     })
-
-    fetch("http://focused-hamilton-101097.netlify.app/.netlify/functions/fetchHowTos")
-        .then(x => x.json())
-        .then(y => {
-          console.log(y, 'the y value')
-        })
-
-        // console.log(handler())
-
   }
 
   renderCategories = () => {
